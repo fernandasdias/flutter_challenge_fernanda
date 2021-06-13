@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_challenge_fernanda/data/datasource/github_api.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_challenge_fernanda/data/repositories/github_repository.dart';
+import 'package:flutter_challenge_fernanda/presentation/bloc/repository_bloc.dart';
+import 'package:flutter_challenge_fernanda/screens/repository_list_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,11 +14,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    GithubApi.getRepositories();
-    return Scaffold(
-      body: SafeArea(
-        child: Container(),
-      ),
+    return BlocProvider(
+      create: (context) =>
+          RepositoryBloc(GithubRepositoryImpl())..add(FetchRepositoriesEvent()),
+      child: RepositoryListScreen(),
     );
   }
 }
