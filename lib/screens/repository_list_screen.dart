@@ -49,6 +49,13 @@ class RepositoryListScreen extends StatelessWidget {
                                 '',
                             createdAt:
                                 state.repositoryListModel.list[index].createdAt,
+                            language: state
+                                    .repositoryListModel.list[index].language ??
+                                '',
+                            description: state
+                                .repositoryListModel.list[index].description,
+                            numberOfStars: state
+                                .repositoryListModel.list[index].numberStars,
                           );
                         },
                       ),
@@ -70,33 +77,99 @@ class CardItem extends StatelessWidget {
     Key? key,
     required this.title,
     required this.createdAt,
+    required this.language,
+    required this.description,
+    required this.numberOfStars,
   }) : super(key: key);
   final String title;
   final DateTime? createdAt;
+  final String language;
+  final String description;
+  final int? numberOfStars;
   @override
   Widget build(BuildContext context) {
-    print('teste');
-    DateFormat formatter = DateFormat('dd-MM-yy');
-    return Card(
-      // elevation: 2.0,
-      margin: EdgeInsets.only(top: 12),
-      shadowColor: Colors.black12,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: TextStyle(fontSize: 20),
-            ),
-            if (createdAt != null)
-              Text(
-                formatter.format(createdAt!).toString(),
-                style: TextStyle(fontSize: 16),
+    DateFormat formatter = DateFormat('dd/MM/yy');
+    return InkWell(
+      onTap: () {},
+      child: Card(
+        // elevation: 2.0,
+        margin: EdgeInsets.only(top: 12),
+        shadowColor: Colors.black12,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Icon(Icons.book_rounded),
               ),
-          ],
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ItemText(title: title, size: 20),
+                    if (description.isNotEmpty)
+                      ItemText(title: description.toString(), size: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        if (createdAt != null)
+                          ItemText(
+                              title: 'Created at ' +
+                                  formatter.format(createdAt!).toString(),
+                              size: 12),
+                        if (numberOfStars != null)
+                          Padding(
+                            padding: const EdgeInsets.only(right: 6),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.amberAccent,
+                                ),
+                                Text(numberOfStars.toString()),
+                              ],
+                            ),
+                          )
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
+      ),
+    );
+  }
+}
+
+class ItemText extends StatelessWidget {
+  const ItemText({
+    Key? key,
+    required this.title,
+    required this.size,
+  }) : super(key: key);
+
+  final String title;
+  final double size;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 6, horizontal: 6),
+      child: Column(
+        children: [
+          Container(
+            // color: Colors.amber,
+            child: Text(
+              title,
+              overflow: TextOverflow.ellipsis,
+              softWrap: true,
+              maxLines: 2,
+              style: TextStyle(fontSize: size),
+            ),
+          ),
+        ],
       ),
     );
   }
