@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_challenge_fernanda/presentation/bloc/repository_bloc.dart';
+import 'package:flutter_challenge_fernanda/presentation/repository/repository_bloc.dart';
+import 'package:flutter_challenge_fernanda/screens/repository_detail_screen.dart';
 import 'package:flutter_challenge_fernanda/widgets/custom_app_bar_widget.dart';
 import 'package:intl/intl.dart';
 
@@ -56,6 +57,7 @@ class RepositoryListScreen extends StatelessWidget {
                                 .repositoryListModel.list[index].description,
                             numberOfStars: state
                                 .repositoryListModel.list[index].numberStars,
+                            id: state.repositoryListModel.list[index].id,
                           );
                         },
                       ),
@@ -80,17 +82,22 @@ class CardItem extends StatelessWidget {
     required this.language,
     required this.description,
     required this.numberOfStars,
+    required this.id,
   }) : super(key: key);
   final String title;
   final DateTime? createdAt;
   final String language;
   final String description;
   final int? numberOfStars;
+  final int id;
   @override
   Widget build(BuildContext context) {
     DateFormat formatter = DateFormat('dd/MM/yy');
     return InkWell(
-      onTap: () {},
+      onTap: () => Navigator.of(context).push(MaterialPageRoute(
+          builder: (BuildContext context) => RepositoryDetailScreen(
+                id: id,
+              ))),
       child: Card(
         // elevation: 2.0,
         margin: EdgeInsets.only(top: 12),

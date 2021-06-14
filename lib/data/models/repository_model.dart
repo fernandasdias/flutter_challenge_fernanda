@@ -12,6 +12,7 @@ class RepositoryListModel {
 
 class Repository {
   String? name;
+  late int id;
   String? fullName;
   String? url;
   String? language;
@@ -22,6 +23,7 @@ class Repository {
   String description = '';
   Repository.fromJson(element) {
     try {
+      id = element['id'];
       if (element['name'] != null) name = element['name'];
       if (element['full_name'] != null) fullName = element['full_name'];
       if (element['url'] != null) url = element['url'];
