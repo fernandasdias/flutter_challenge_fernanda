@@ -8,11 +8,34 @@ class CustomAppBar extends PreferredSize {
           child: Container(
             padding: EdgeInsets.only(left: 16, top: 45, right: 16, bottom: 16),
             // color: Colors.amber,
-            child: Column(
-              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                buildFirstRow(),
-                buildSecondRow(),
+                Expanded(
+                  flex: 4,
+                  child: Container(
+                    // color: Colors.black12,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        buildFirstRow(),
+                        buildSecondRow(),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    // color: Colors.black12,
+                    child: Image.network(
+                      'https://avatars.githubusercontent.com/u/1932180?s=200&v=4',
+                      width: 56,
+                      height: 56,
+                      fit: BoxFit.fitHeight,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
@@ -21,7 +44,7 @@ class CustomAppBar extends PreferredSize {
 
 Container buildSecondRow() {
   return Container(
-    // color: Colors.black12,
+    // color: Colors.amberAccent,
     child: Row(
       children: [
         Text(
@@ -52,24 +75,16 @@ Container buildSecondRow() {
 
 Widget buildFirstRow() {
   return Container(
-    // color: Colors.black38,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
           'Hi,',
           style: TextStyle(
               color: AppColorTheme.textColor,
-              fontSize: 20,
+              fontSize: 24,
               fontWeight: FontWeight.w500),
-        ),
-        Container(
-          child: Image.network(
-            'https://avatars.githubusercontent.com/u/1932180?s=200&v=4',
-            width: 56,
-            height: 56,
-            fit: BoxFit.fitHeight,
-          ),
         ),
       ],
     ),

@@ -14,7 +14,7 @@ class RepositoryListScreen extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(),
       body: SafeArea(
-        minimum: EdgeInsets.symmetric(horizontal: 6, vertical: 8),
+        minimum: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

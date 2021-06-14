@@ -11,10 +11,8 @@ class GithubRepositoryImpl implements GithubRepository {
   Client client = Client();
   Future<RepositoryListModel> fetchGithubRepositories() async =>
       await GithubApi.getRepositories(client);
-
+// https://api.github.com/repos/wearereasonablepeople/ApiConnector/commits
   @override
-  Future fetchRepositoryDetail(String name) async {
-    // https://api.github.com/repos/wearereasonablepeople/ApiConnector/commits
-    await GithubApi.fetchRepositoryDetail(client, name);
-  }
+  Future fetchRepositoryDetail(String name) async =>
+      await GithubApi.fetchRepositoryDetail(client, name);
 }

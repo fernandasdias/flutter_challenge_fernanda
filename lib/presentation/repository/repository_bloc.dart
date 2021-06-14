@@ -22,9 +22,14 @@ class RepositoryBloc extends Bloc<RepositoryEvent, RepositoryState> {
       RepositoryListModel _repositoryList = RepositoryListModel();
       yield LoadingRepositoriesState();
       try {
+        _repositoryList.list
+            .sort((a, b) => a.createdAt!.compareTo(b.createdAt!));
+        print('---------');
+        print(_repositoryList.list.map((e) => e.createdAt));
         _repositoryList = await repository.fetchGithubRepositories();
         yield LoadedRepositoriesState(_repositoryList);
       } on Exception catch (e) {
+        print(e);
         FailureState(_repositoryList);
       }
     }
