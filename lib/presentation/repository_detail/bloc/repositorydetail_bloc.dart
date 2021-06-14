@@ -18,6 +18,7 @@ class RepositoryDetailBloc
   ) async* {
     if (event is FetchRepositoryDetail) {
       yield LoadingState();
+      await repository.fetchRepositoryDetail(event.name);
     }
   }
 }

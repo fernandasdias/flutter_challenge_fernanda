@@ -7,4 +7,8 @@ abstract class RepositorydetailEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class FetchRepositoryDetail extends RepositorydetailEvent {}
+class FetchRepositoryDetail extends RepositorydetailEvent {
+  final String name;
+
+  FetchRepositoryDetail(this.name);
+}
