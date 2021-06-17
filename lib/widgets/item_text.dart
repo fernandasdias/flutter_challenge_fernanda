@@ -5,8 +5,9 @@ class ItemText extends StatelessWidget {
     Key? key,
     required this.title,
     required this.size,
+    this.style,
   }) : super(key: key);
-
+  final TextStyle? style;
   final String title;
   final double size;
   @override
@@ -22,7 +23,7 @@ class ItemText extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               softWrap: true,
               maxLines: 2,
-              style: TextStyle(fontSize: size),
+              style: style ?? TextStyle(fontSize: size),
             ),
           ),
         ],

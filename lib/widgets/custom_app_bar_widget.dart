@@ -4,10 +4,10 @@ import 'package:flutter_challenge_fernanda/theme/theme.dart';
 class CustomAppBar extends PreferredSize {
   CustomAppBar()
       : super(
-          preferredSize: Size.fromHeight(120),
+          preferredSize: Size.fromHeight(100),
           child: Container(
+            // color: Colors.red,
             padding: EdgeInsets.only(left: 16, top: 45, right: 16, bottom: 16),
-            // color: Colors.amber,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -27,7 +27,11 @@ class CustomAppBar extends PreferredSize {
                 ),
                 Expanded(
                   child: Container(
-                    // color: Colors.black12,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(
+                            color: AppColorTheme.darkModeSubtitle, width: 1),
+                        borderRadius: BorderRadius.circular(4)),
                     child: Image.network(
                       'https://avatars.githubusercontent.com/u/1932180?s=200&v=4',
                       width: 56,
@@ -50,7 +54,7 @@ Container buildSecondRow() {
         Text(
           '@wearereasonablepeople',
           style: TextStyle(
-              color: AppColorTheme.textColor,
+              color: AppColorTheme.darkModeUsernameTitle,
               fontSize: 16,
               fontWeight: FontWeight.w500),
         ),
@@ -58,20 +62,6 @@ Container buildSecondRow() {
     ),
   );
 }
-// decoration: BoxDecoration(
-//                     color: Colors.black12,
-//                     // boxShadow: [
-//                     //   BoxShadow(
-//                     //     color: Colors.black12,
-//                     //     offset: Offset(-1, 1),
-//                     //     blurRadius: 4,
-//                     //     spreadRadius: 0,
-//                     //   ),
-//                     // ],
-//                     // color: Colors.black12,
-//                     borderRadius: BorderRadius.all(
-//                       Radius.circular(10),
-//                     )),
 
 Widget buildFirstRow() {
   return Container(
@@ -80,9 +70,9 @@ Widget buildFirstRow() {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
-          'Hi,',
+          'Hi',
           style: TextStyle(
-              color: AppColorTheme.textColor,
+              color: AppColorTheme.darkModeTitle,
               fontSize: 24,
               fontWeight: FontWeight.w500),
         ),
@@ -90,31 +80,3 @@ Widget buildFirstRow() {
     ),
   );
 }
-
-//    {
-//     return AppBar(
-//       title: Column(
-//         crossAxisAlignment: CrossAxisAlignment.start,
-//         children: [Text('Hi,'), Text('@wearereasonablepeople')],
-//       ),
-//       centerTitle: false,
-//       backgroundColor: Colors.transparent,
-//       // leading: InkWell(
-//       //   splashColor: Colors.transparent,
-//       //   highlightColor: Colors.transparent,
-//       //   onTap: () => Navigator.of(context).pop(false),
-//       //   child: Image.network(
-//       //     url,
-//       //     height: 54,
-//       //     fit: BoxFit.fitHeight,
-//       //   ),
-//       // ),
-//       bottom: TabBar(
-//         tabs: [
-//           Tab(icon: Icon(Icons.book)),
-//           Tab(icon: Icon(Icons.account_box)),
-//         ],
-//       ),
-//     );
-//   }
-// }

@@ -4,7 +4,6 @@ import 'package:flutter_challenge_fernanda/data/repositories/github_repository.d
 import 'package:flutter_challenge_fernanda/presentation/repository_detail/bloc/detail_bloc.dart';
 import 'package:flutter_challenge_fernanda/theme/theme.dart';
 import 'package:flutter_challenge_fernanda/widgets/row_widget.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 class RepositoryDetailScreen extends StatelessWidget {
@@ -122,7 +121,7 @@ class Body extends StatelessWidget {
                       decoration: BoxDecoration(
                           border: Border.all(
                               color: AppColorTheme.darkModeSubtitle, width: 1),
-                          borderRadius: BorderRadius.circular(9)),
+                          borderRadius: BorderRadius.circular(4)),
                       margin: EdgeInsets.fromLTRB(16, 8, 16, 8),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

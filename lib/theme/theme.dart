@@ -18,4 +18,6 @@ class AppColorTheme {
   static get darkModeTitle => Color(0xFFC9D1D9);
   static get darkModeSubtitle => Color(0xFF6E7681);
   static get darkModeSecondaryTitle => Color(0xFFF4FAFF);
+  static get darkModeUsernameTitle => Color(0xFF8B949E);
+  static get yellowFunctionalColor => Color(0xFFF2C94C);
 }
