@@ -4,7 +4,7 @@ This project fetches data from an specific github repository and details informa
 
 The user interface was designed by Tamires Lelis (https://www.figma.com/file/sFo5fwh4PLSEMGmxRbVM4s/Fernanda-Challenge-Dark-mode?node-id=1%3A3) and developed by me.
 
-I used Bloc, clean architecture principles and Unit tests and Dark Mode design.
+I used Bloc, clean architecture principles, unit tests and dark mode design.
 
 
  
