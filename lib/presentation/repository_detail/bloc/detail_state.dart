@@ -14,7 +14,8 @@ class LoadingState extends DetailState {}
 class FailureState extends DetailState {}
 
 class LoadedState extends DetailState {
+  final String repositoryName;
   final RepositoryDetail repositoryDetail;
 
-  LoadedState(this.repositoryDetail);
+  LoadedState(this.repositoryDetail, this.repositoryName);
 }

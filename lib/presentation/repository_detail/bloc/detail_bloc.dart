@@ -20,7 +20,7 @@ class DetailBloc extends Bloc<DetailEvent, DetailState> {
       try {
         RepositoryDetail repositoryDetail =
             await repository.fetchRepositoryDetail(event.name);
-        yield LoadedState(repositoryDetail);
+        yield LoadedState(repositoryDetail, event.name);
       } on Exception catch (e) {
         yield FailureState();
       }
